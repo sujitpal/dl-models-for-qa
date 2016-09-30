@@ -159,6 +159,7 @@ The bAbI dataset is available from [this URL]. Download it and expand the tarbal
 
 My code uses the **original dataset** provided along with the competition, which is no longer available (and cannot be distributed). However, AllenAI provides an [alternative dataset](http://allenai.org/data.html) which can be used instead. These files need to be copied into the comp\_data subdirectory. Note that the format of the new data is slightly different, but fortunately well documented, so you will have to adapt the parsing logic in kaggle.py. Look for the following verbiage to find the correct dataset to download.
 
+>    AI2 8th Grade Science Questions (No Diagrams)
 >    641 questions February 2016 These question sets are derived from a variety of regional and state science exams.
 >
 >    These science exam questions guide our research into multiple choice question answering at the elementary science level. This download contains 8th grade-level multiple choice questions that do not incorporate diagrams.
