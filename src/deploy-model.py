@@ -25,7 +25,7 @@ NUM_CHOICES = 4   # number of choices for multiple choice
 #### Load up the vectorizer
 qapairs = kaggle.get_question_answer_pairs(
     os.path.join(DATA_DIR, QA_TRAIN_FILE))
-word2idx = kaggle.build_vocab([], qapairs)
+word2idx = kaggle.build_vocab([], qapairs, [])
 vocab_size = len(word2idx) + 1 # include mask character 0
 
 #### Load up the model

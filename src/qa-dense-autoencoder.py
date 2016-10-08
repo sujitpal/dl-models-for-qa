@@ -28,7 +28,7 @@ question_maxlen = max([len(qapair[0]) for qapair in qapairs])
 answer_maxlen = max([len(qapair[1]) for qapair in qapairs])
 seq_maxlen = max([story_maxlen, question_maxlen, answer_maxlen])
 
-word2idx = kaggle.build_vocab(stories, qapairs)
+word2idx = kaggle.build_vocab(stories, qapairs, [])
 vocab_size = len(word2idx)
 
 Xs = kaggle.vectorize_stories(stories, word2idx, seq_maxlen)

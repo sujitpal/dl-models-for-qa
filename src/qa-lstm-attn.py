@@ -32,7 +32,7 @@ question_maxlen = max([len(qapair[0]) for qapair in qapairs])
 answer_maxlen = max([len(qapair[1]) for qapair in qapairs])
 seq_maxlen = max([question_maxlen, answer_maxlen])
 
-word2idx = kaggle.build_vocab([], qapairs)
+word2idx = kaggle.build_vocab([], qapairs, [])
 vocab_size = len(word2idx) + 1 # include mask character 0
 
 Xq, Xa, Y = kaggle.vectorize_qapairs(qapairs, word2idx, seq_maxlen)
