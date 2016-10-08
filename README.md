@@ -22,6 +22,8 @@
 
 This repository contains Python code to train and deploy Deep Learning (DL) models for Question Answering (QA). The code accompanies a talk I gave at the Question Answering Workshop organized by the Elsevier Search Guild.
 
+You can find the [slides for this talk](http://www.slideshare.net/sujitpal/deep-learning-models-for-question-answering) on Slideshare.
+
 Code is in Python. All the models are built using the awesome [Keras](https://keras.io/) library. Supporting code also uses [gensim](https://radimrehurek.com/gensim/), [NLTK](http://www.nltk.org/) and [Spacy](https://spacy.io/).
 
 Objective of the code was to build DL model(s) to answer 8th grade multiple-choice science questions, provided as part of this [AllenAI competition on Kaggle](Thttps://www.kaggle.com/c/the-allen-ai-science-challenge).
