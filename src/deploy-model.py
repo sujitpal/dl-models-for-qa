@@ -10,11 +10,14 @@ import os
 import kaggle
 
 MODEL_DIR = "../data/models"
-MODEL_ARCH = "qa-lstm.json"
-MODEL_WEIGHTS = "qa-lstm-model-best.hdf5"
+#MODEL_ARCH = "qa-lstm.json"
+#MODEL_WEIGHTS = "qa-lstm-model-best.hdf5"
+MODEL_ARCH = "qa-lstm-fem-attn.json"
+MODEL_WEIGHTS = "qa-lstm-fem-attn-final.h5"
 
 DATA_DIR = "../data/comp_data"
 QA_TRAIN_FILE = "8thGr-NDMC-Train.csv"
+QA_TEST_FILE = "8thGr-NDMC-Test.csv"
 
 WORD2VEC_BIN = "GoogleNews-vectors-negative300.bin.gz"
 WORD2VEC_EMBED_SIZE = 300
@@ -25,7 +28,10 @@ NUM_CHOICES = 4   # number of choices for multiple choice
 #### Load up the vectorizer
 qapairs = kaggle.get_question_answer_pairs(
     os.path.join(DATA_DIR, QA_TRAIN_FILE))
-word2idx = kaggle.build_vocab([], qapairs, [])
+tqapairs = kaggle.get_question_answer_pairs(
+    os.path.join(DATA_DIR, QA_TEST_FILE), is_test=True)
+
+word2idx = kaggle.build_vocab([], qapairs, tqapairs)
 vocab_size = len(word2idx) + 1 # include mask character 0
 
 #### Load up the model
@@ -58,6 +64,8 @@ Y = model.predict([Xq, Xa])
 # calculate the softmax
 probs = np.exp(1.0 - (Y[:, 1] - Y[:, 0]))
 probs = probs / np.sum(probs)
+
+print(probs)
 
 plt.bar(np.arange(len(probs)), probs)
 plt.xticks(np.arange(len(probs))+0.35, ["A", "B", "C", "D"])
