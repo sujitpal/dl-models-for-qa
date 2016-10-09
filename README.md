@@ -173,4 +173,9 @@ The models directory is used to hold the models that are written out by the diff
 
 ## Model deployment
 
-TODO
+For deployment, we run each question + answer pair and consider the difference between the positive and negative outputs as the "score". The score is then normalized to sum to 1 and the one with the highest score selected as the winning choice.
+
+As an example, the following image shows the actual predictions for a question and answer from our dataset. The chart shows the probability of each choice according to our strongest model.
+
+<img src="docs/deploy.png"/>
+
