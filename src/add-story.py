@@ -62,7 +62,13 @@ class StoryFinder(object):
         stories = []
         for hit in hits:
             stories.append(hit["_source"]["story"].encode("ascii", "ignore"))
-        return stories
+        
+        stories2 = []
+        for item in stories:
+            stories2.append(item.decode('utf-8','ignore'))
+                
+        return stories2    
+        
 
 
 ###### main ####
@@ -78,7 +84,7 @@ for line in fqa:
         continue
     if nbr_lines % 100 == 0:
         print("Processed %d lines of input..." % (nbr_lines))
-    line = line.strip().decode("utf8").encode("ascii", "ignore")
+    line = line.strip()
     qid, question, correct_ans, ans_a, ans_b, ans_c, ans_d = \
         line.split("\t")
     story = " ".join(storyfinder.find_stories_for_question(question))
