@@ -64,8 +64,8 @@ class StoryFinder(object):
             stories.append(hit["_source"]["story"].encode("ascii", "ignore"))
         
         stories2 = []
-        for item in stories:
-            stories2.append(item.decode('utf-8','ignore'))
+        for story in stories:
+            stories2.append(story.decode('utf-8','ignore'))
                 
         return stories2    
         
