@@ -1,5 +1,9 @@
 # dl-models-for-qa
 
+```diff
+- WARNING: As pointed out recently by a colleague, the 75% accuracies achieved by the QA models described in this project could have been achieved by a classifier that learned to always select the wrong answer in the pair (since 3 of 4 of the training set consists of false answers). He took the evaluation one step further and compared the softmax probabilities associated with each of the 4 possible answers against the correct answer, and achieved accuracies around 25%, once again indicative of a model that is good as random (1 in 4 answers are correct). 
+```
+
 ## Table of Contents
 
 * [Introduction](#introduction)
